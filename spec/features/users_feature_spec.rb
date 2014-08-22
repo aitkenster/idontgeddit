@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'user management' do 
 	context 'users are not signed in' do 
 		it 'users can sign up' do
-			visit '/idontgeddits'
+			visit '/posts'
 			click_link 'Sign Up'
 			fill_in 'Username', with: "cluless"
 			fill_in 'Email', with: "whmail@hotmail.com"
@@ -14,10 +14,10 @@ describe 'user management' do
 		end
 
 		it ' users can sign up' do 
-			@user = User.create(username: "clueless", email: "whatmail@hotmail.com", password: "12345678", password_confirmation: "12345678")
-			visit '/idontgeddits'
+			person = create(:user)
+			visit '/posts'
 			click_link 'Sign In'
-			fill_in 'Email', with: "whatmail@hotmail.com"
+			fill_in 'Email', with: "wahoo@yahoo.com"
 			fill_in "Password", with: "12345678"
 			click_button "Sign in"
 			expect(page).to have_content 'Signed in successfully.'
@@ -27,8 +27,8 @@ describe 'user management' do
 	context 'users are signed in' do 
 			
 			before(:each) do 
-				User.create(username: "clueless", email: "whatmail@hotmail.com", password: "12345678", password_confirmation: "12345678")   
-				visit '/idontgeddits'
+				person = create(:user)  
+				visit '/posts'
 				click_link 'Sign In'
 				fill_in 'Email', with: "whatmail@hotmail.com"
 				fill_in "Password", with: "12345678"
