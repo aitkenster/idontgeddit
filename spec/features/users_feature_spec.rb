@@ -30,7 +30,7 @@ describe 'user management' do
 				person = create(:user)  
 				visit '/posts'
 				click_link 'Sign In'
-				fill_in 'Email', with: "whatmail@hotmail.com"
+				fill_in 'Email', with: "wahoo@yahoo.com"
 				fill_in "Password", with: "12345678"
 				click_button "Sign in"
 			end

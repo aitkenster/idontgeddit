@@ -1,0 +1,18 @@
+<% if @post.comments.any? %>
+	<% @post.comments.each do |comment| %>
+		<%= comment.body %>
+	<%end%>
+<% else %>
+	There are no comments on this DontGeddit
+<%end%>
+
+<%= form_for [@post, @comment], html: {multipart: true} do |f| %>
+	<p>
+		<%= f.label :body %>
+		<%= f.text_field :body %>
+	</p>
+
+	<p>
+		<%= f.submit 'Add Comment' %>
+	</p>
+<% end %>

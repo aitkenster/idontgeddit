@@ -9,6 +9,8 @@ describe 'posts' do
 			expect(page).to have_content 'The internet is not confused at the moment. Are you?'
 		end
 
+	end
+
 	context 'one post' do 
 
 		it 'shows one post when there is only one present' do 
@@ -19,10 +21,7 @@ describe 'posts' do
 			click_button "Create DontGeddit"
 			expect(page).to have_content "I just don't geddit"
 			expect(page).to have_content "This is what I don't get"
+		
 		end
-
 	end
-
-	end
-
 end

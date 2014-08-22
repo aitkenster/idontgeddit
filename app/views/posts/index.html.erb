@@ -2,6 +2,7 @@
 	<% @posts.each do |post| %>
 		<h2><%=post.title%></h2>
 		<p><%=post.text%></p>
+		<p><%= link_to 'Comments', post_path(post) %>
 	<%end%>
 <%else%>
 	The internet is not confused at the moment. Are you?
