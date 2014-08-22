@@ -1,3 +1,10 @@
-The internet is not confused at the moment. Are you?
+<% if @posts.any? %>
+	<% @posts.each do |post| %>
+		<h2><%=post.title%></h2>
+		<p><%=post.text%></p>
+	<%end%>
+<%else%>
+	The internet is not confused at the moment. Are you?
+<%end%>
 
-<%= link_to "New iDontGeddit", new_post_path %>
+<%= link_to "New DontGeddit", new_post_path %>

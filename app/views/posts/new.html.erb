@@ -1,0 +1,14 @@
+<%= form_for @post, html: {multipart: true} do |f| %>
+<p>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+</p>
+<p>
+	<%= f.label :text %>
+	<%= f.text_field :text %>
+</p>
+
+<p>
+	<%= f.submit 'Create DontGeddit' %>
+</p>
+<%end%>
