@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
 #when the post was created and 7:46:43am 8th Dec 2005
   def time_count
   	base_time = DateTime.new(2005, 12, 8, 07, 46, 43)
-  	TimeDifference.between(base_time, created_at).in_seconds
+  	created_at.to_f - base_time.to_f
   end
 
   def hot_ranking

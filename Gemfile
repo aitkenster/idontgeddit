@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+#user authentication gem
+gem 'devise'
+
+gem 'activesupport'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
@@ -41,13 +46,7 @@ group :development, :test do
 
 end
 
-#user authentication gem
-gem 'devise'
 
-#calculate time difference
-gem 'time_difference' 
-
-gem 'activesupport'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
