@@ -2,8 +2,6 @@
 	<% @post.comments.each do |comment| %>
 		<%= comment.body %>
 	<%end%>
-<% else %>
-	There are no comments on this DontGeddit
 <%end%>
 
 <%= form_for [@post, @comment], html: {multipart: true} do |f| %>
