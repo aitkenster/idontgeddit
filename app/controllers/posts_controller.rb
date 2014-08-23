@@ -18,7 +18,8 @@ class PostsController < ApplicationController
 		@comment = @post.comments.new
 	end
 
-	
-
+	def hot
+		@posts = Post.all.sort_by{|post|post.hot_ranking}
+	end
 
 end

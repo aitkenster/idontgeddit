@@ -10,7 +10,7 @@ describe 'hot posts ranking system' do
 			end
 		end
 		it 'they should have the same ranking' do 
-			expect @not_hot_post_one.ranking == @not_hot_post_two.ranking
+			expect @not_hot_post_one.hot_ranking == @not_hot_post_two.hot_ranking
 		end
 	end
 
@@ -24,7 +24,7 @@ describe 'hot posts ranking system' do
 		end
 
 		it 'the one with the best voting score should have the higher ranking' do 
-			expect @hot_post.ranking > @not_hot_post.ranking
+			expect @hot_post.hot_ranking > @not_hot_post.hot_ranking
 		end
 	end
 
@@ -38,7 +38,7 @@ describe 'hot posts ranking system' do
 			10.times{@hot_old_post.upvotes.create}
 		end
 		it 'the newer one has a higher score' do 
-			expect @hot_new_post.ranking > @hot_old_post.ranking
+			expect @hot_new_post.hot_ranking > @hot_old_post.hot_ranking
 		end
 	end
 
@@ -50,9 +50,9 @@ describe 'hot posts ranking system' do
 			end
 			@unpopular_post.downvotes.create
 		end
-		
+
 		it 'they should have the same score' do 
-			expect @not_hot_post == @unpopular_post
+			expect @not_hot_post.hot_ranking == @unpopular_post.hot_ranking
 		end
 
 	end

@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
   	TimeDifference.between(base_time, created_at).in_seconds
   end
 
-  def ranking
+  def hot_ranking
   		return 0 if overall_votes <= 0
   	 (Math.log10(overall_votes))+(time_count/45000)
   end
