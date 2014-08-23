@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'posts/hot'
+
   devise_for :users
   resources :posts do 
     resources :comments
