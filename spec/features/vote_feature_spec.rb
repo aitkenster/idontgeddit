@@ -13,6 +13,11 @@ describe 'vote' do
 			expect(page).to have_content '1 vote'
 		end
 
+		it 'a user should be able to downvote a review' do 
+			click_link '↓'
+			expect(page).to have_content '-1 vote'
+		end
+
 	end
 
 end
