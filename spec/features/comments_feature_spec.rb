@@ -16,7 +16,6 @@ describe 'comments' do
 
 	context 'when there is a comment on a post' do 
 
-
 		it 'should display the comment' do
 			@test_post = Post.new(title: "this", text: "that") 
 			leave_review("This is a comment")
