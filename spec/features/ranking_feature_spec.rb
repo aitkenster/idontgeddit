@@ -14,9 +14,7 @@ describe 'hot ranking page' do
 		it 'They will see pages ranked in order of newness and popularity' do 
 			visit '/posts'
 			click_link 'hot'
-			save_and_open_page
 			expect(page.body.index(@hot_post.title).should < page.body.index(@not_hot_post.title))
-
 		end
 	end
 end
