@@ -30,7 +30,8 @@ describe 'posts' do
 			fill_in "Title", with: "Here's a link I don't get"
 			fill_in "Url", with: "http://www.reddit.com"
 			click_button "Create DontGeddit"
-			expect(page).to have_css 'a', text: "Here's a link I don't get"
+			click_link "Here's a link I don't get"
+			expect
 		end
 	end
 
