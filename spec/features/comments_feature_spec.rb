@@ -11,6 +11,7 @@ describe 'comments' do
 		click_link "Comments"
 		fill_in "Body", with: "This is a test comment"
 		click_button "Add Comment"
+		expect(page).to have_content("My Post Text")
 		expect(page).to have_content("This is a test comment")
 	end
 

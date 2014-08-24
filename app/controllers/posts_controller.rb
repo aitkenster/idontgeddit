@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new(params[:post].permit(:title, :text))
+		@post = Post.new(params[:post].permit(:title, :text, :url))
 		@post.save
 		redirect_to '/posts'
 	end
@@ -36,6 +36,10 @@ class PostsController < ApplicationController
 
 	def top
 		@posts = Post.all.sort_by{|post|post.overall_votes}
+	end
+
+	def new_link
+		@post = Post.new
 	end
 
 end

@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :post do
-    title "MyText"
-    text "MyText"
+    title "My Post Title"
+    text "My Post Text"
 
 	  factory :hot_post do 
 	  	title "This is a hot post"

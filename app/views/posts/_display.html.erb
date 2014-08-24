@@ -1,7 +1,11 @@
 <% if @posts.any? %>
 	<% @posts.reverse_each do |post| %>
-		<h2><%=post.title%></h2>
-		<p><%=post.text%></p>
+
+		<% if post.url != nil %>
+			<a href="<%post.url%>"><h2><%=post.title%></h2></a>
+		<%else%>
+			<h2><%=post.title%></h2>
+		<%end%>
 		<p><%= link_to 'Comments', post_path(post) %>
 		<p>
 		<%= link_to '↑', post_upvotes_path(post), method: :post %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'posts/new_link'
+
   get 'posts/top'
 
   get 'posts/rising'
