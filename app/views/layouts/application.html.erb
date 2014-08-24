@@ -18,7 +18,10 @@
 <%= link_to 'Sign In', new_user_session_path %>
 <%end%>
 
-<article ="nav bar"><%= link_to 'hot', posts_hot_path%> </article>
+<article ="nav bar">
+<%= link_to 'hot', posts_hot_path%> 
+<%= link_to 'controversial', posts_controversial_path%>
+</article>
 
 <%= yield %>
 

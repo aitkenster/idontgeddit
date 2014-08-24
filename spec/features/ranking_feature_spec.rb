@@ -14,7 +14,26 @@ describe 'hot ranking page' do
 		it 'They will see pages ranked in order of newness and popularity' do 
 			visit '/posts'
 			click_link 'hot'
-			expect(page.body.index(@hot_post.title).should < page.body.index(@not_hot_post.title))
+			expect(page.body.index(@hot_post.title)).to be < page.body.index(@not_hot_post.title)
+		end
+	end
+end
+
+describe 'controversial ranking page' do
+	context 'when a user goes to the hot page' do 
+
+		before(:each) do 
+					@controversial_post = create(:controversial_post)
+					10.times{@controversial_post.upvotes.create}
+					7.times{@controversial_post.downvotes.create}
+					@uncontroversial_post = create(:post)
+					10.times{@uncontroversial_post.upvotes.create}
+		end
+
+		it 'They will see pages ranked in order of newness and popularity' do 
+			visit '/posts'
+			click_link 'controversial'
+			expect(page.body.index(@controversial_post.title)).to be < page.body.index(@uncontroversial_post.title)
 		end
 	end
 end

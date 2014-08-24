@@ -21,4 +21,21 @@ class Post < ActiveRecord::Base
   	 (Math.log10(overall_votes))+(time_count/45000)
   end
 
+  def controversial_ranking
+    return 0 if upvotes.count == 0 || downvotes.count == 0
+    magnitude ** balance
+  end
+
+  def magnitude
+    upvotes.count + downvotes.count
+  end
+
+  def balance
+    if upvotes.count > downvotes.count
+      downvotes.count.to_f/upvotes.count.to_f
+    else
+      upvotes.count.to_f/downvotes.count.to_f
+    end
+  end
+
 end

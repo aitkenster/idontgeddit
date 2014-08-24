@@ -12,5 +12,9 @@ FactoryGirl.define do
 	  factory :not_hot_post do 
 	  	title "This is not a hot post"
 	  end
+
+	  factory :controversial_post do 
+	  	title "This is a controversial post"
+	  end
   end
 end
