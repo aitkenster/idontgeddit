@@ -34,4 +34,8 @@ class PostsController < ApplicationController
 		@posts = Post.all.sort_by{|post|post.rising_ranking}
 	end
 
+	def top
+		@posts = Post.all.sort_by{|post|post.overall_votes}
+	end
+
 end

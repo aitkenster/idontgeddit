@@ -68,5 +68,21 @@ describe 'rising ranking page' do
 			expect(page.body.index(@rising_post.title)).to be < page.body.index(@post.title)
 		end
 	end
+end
+
+describe 'top ranking page' do 
+	context ' when a user visits the top page' do 
+		before(:each) do
+			@top_post = create(:hot_post)
+			@post = create(:post)
+			10.times{@top_post.upvotes.create}
+		end
+
+		it 'posts will be displayed accoring to the number of votes they have' do 
+			visit '/posts'
+			click_link 'top'
+			expect(page.body.index(@top_post.title)).to be < page.body.index(@post.title)
+		end
+	end
 
 end
