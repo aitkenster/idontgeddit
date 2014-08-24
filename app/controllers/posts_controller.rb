@@ -26,4 +26,8 @@ class PostsController < ApplicationController
 		@posts = Post.all.sort_by{|post|post.controversial_ranking}
 	end
 
+	def newest
+		@posts = Post.all
+	end
+
 end

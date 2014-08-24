@@ -37,3 +37,20 @@ describe 'controversial ranking page' do
 		end
 	end
 end
+
+describe ' newest ranking page' do 
+	context 'when a user goes to the newest page' do 
+		
+		before(:each) do 
+			@oldest = create(:post)
+			@newest = create(:hot_post)
+		end
+
+		it 'posts will be displayed in chronological order' do 
+			visit '/posts'
+			click_link 'newest'
+			expect(page.body.index(@newest.title)).to be < page.body.index(@oldest.title)
+		end
+	end
+
+end
