@@ -54,3 +54,19 @@ describe ' newest ranking page' do
 	end
 
 end
+
+describe 'rising ranking page' do 
+	context 'when a user goes to the rising page' do
+		before(:each) do
+			@rising_post = create(:hot_post)
+			@post = create(:post)
+			10.times{@rising_post.upvotes.create}
+		end 
+		it 'posts will be displayed according to which ones are rising in popularity' do 
+			visit '/posts'
+			click_link 'rising'
+			expect(page.body.index(@rising_post.title)).to be < page.body.index(@post.title)
+		end
+	end
+
+end

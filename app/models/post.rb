@@ -38,4 +38,9 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def rising_ranking
+    time_weighting = (Time.now.to_f - created_at.to_f)/3600 + 1
+    upvotes.count / time_weighting
+  end
+
 end

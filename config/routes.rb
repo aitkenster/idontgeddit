@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'posts/rising'
+
   get 'posts/newest'
 
   get 'posts/controversial'

@@ -30,4 +30,8 @@ class PostsController < ApplicationController
 		@posts = Post.all
 	end
 
+	def rising
+		@posts = Post.all.sort_by{|post|post.rising_ranking}
+	end
+
 end
