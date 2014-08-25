@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
 	has_many :comments
 	has_many :upvotes
 	has_many :downvotes
+  belongs_to :user
 	validates :title, presence: true,
             length: { minimum: 5 }
 
@@ -42,5 +43,9 @@ class Post < ActiveRecord::Base
     time_weighting = (Time.now.to_f - created_at.to_f)/3600 + 1
     upvotes.count / time_weighting
   end
-  
+
+  def pluralize_votes
+    overall_votes == 1 ? "vote" : "votes"
+  end
+
 end

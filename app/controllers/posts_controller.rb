@@ -4,11 +4,16 @@ class PostsController < ApplicationController
 	end
 
 	def new
+		if !user_signed_in?
+			flash[:notice] = 'Sign in to post'
+			redirect_to '/posts'
+		end
 		@post = Post.new
 	end
 
 	def create
 		@post = Post.new(params[:post].permit(:title, :text, :url))
+		@post.user = current_user
 		@post.save
 		redirect_to '/posts'
 	end

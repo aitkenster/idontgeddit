@@ -45,6 +45,9 @@ group :development, :test do
 	gem 'factory_girl_rails'
 	gem 'launchy'
 	gem 'timecop'
+	gem 'poltergeist'
+	gem 'database_cleaner'
+	gem 'capybara-webkit'
 
 end
 
