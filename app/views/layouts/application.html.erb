@@ -1,34 +1,59 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Idontgeddit</title>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+     <title>Idontgeddit</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <meta charset='utf8'>
-</head>
-<body>
+  </head>
+  <body>
+    <p class="notice"><%= notice %></p>
+	 	<p class="alert"><%= alert %></p>
+		
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  		<div class="container">
+				<article id = "user-management">
+					<ul class="nav nav-pills">
+					<% if user_signed_in? %>
+						<li class ="active"><%= link_to "Sign Out", destroy_user_session_path, :method=>:delete %></li>
+					<%else%>
+						<li class ="active"><%= link_to "Sign Up", new_user_registration_path %></li>
+						<li class ="active"><%= link_to 'Sign In', new_user_session_path %></li>
+						</ul>
+					<%end%>
+				</article>
 
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
- <% if user_signed_in? %>
-	<%= link_to "Sign Out", destroy_user_session_path, :method=>:delete %>
- <%else%>
-<%= link_to "Sign Up", new_user_registration_path %>
-<%= link_to 'Sign In', new_user_session_path %>
-<%end%>
-<%= link_to "New DontGeddit Text", new_post_path %>
-<%= link_to "New DontGeddit Link", posts_new_link_path %>
+				<article id = "rankings">
+					<ul class="nav nav-pills">
+					<li class ="active">
+					<%= link_to 'hot', posts_hot_path%></li> 
+					<li><%= link_to 'controversial', posts_controversial_path%></li>
+					<li><%= link_to 'newest', posts_newest_path%></li>
+					<li><%= link_to 'rising', posts_rising_path%></li>
+					<li><%= link_to 'top', posts_top_path%></li>
+				</ul>
+				</article>
+			</div>
+		</nav>
 
-<article ="nav bar">
-<%= link_to 'hot', posts_hot_path%> 
-<%= link_to 'controversial', posts_controversial_path%>
-<%= link_to 'newest', posts_newest_path%>
-<%= link_to 'rising', posts_rising_path%>
-<%= link_to 'top', posts_top_path%>
-</article>
+		<article id="add-post">
+			<%= link_to "New DontGeddit Text", new_post_path %>
+			<%= link_to "New DontGeddit Link", posts_new_link_path %>
+		</article>
 
-<%= yield %>
+		<%= yield %>
 
-</body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
+
