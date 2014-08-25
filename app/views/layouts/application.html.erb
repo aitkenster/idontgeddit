@@ -43,12 +43,20 @@
 			</div>
 		</nav>
 
-		<article id="add-post">
-			<%= link_to "New DontGeddit Text", new_post_path %>
-			<%= link_to "New DontGeddit Link", posts_new_link_path %>
-		</article>
-
+		<div class="dropdown" id="new-post">
+		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+			New DontGeddit
+			<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			<li role="presentation"><%= link_to "Text DontGeddit", new_post_path %></li>
+			<li role="presentation"><a role="menuitem" tabindex"-1"><%= link_to "Link DontGeddit", posts_new_link_path %></a></li>
+			</ul>
+			</div>
+		
+		<article class="page-content">
 		<%= yield %>
+		</article>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

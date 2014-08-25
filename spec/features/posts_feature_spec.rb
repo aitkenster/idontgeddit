@@ -15,7 +15,7 @@ describe 'posts' do
 
 		it 'shows one post when there is only one present' do 
 			visit '/posts'
-			click_link "New DontGeddit Text"
+			click_link "Text DontGeddit"
 			fill_in "Title", with: "I just don't geddit"
 			fill_in "Text", with: "This is what I don't get"
 			click_button "Create DontGeddit"
@@ -26,12 +26,10 @@ describe 'posts' do
 	context 'adding posts' do 
 		it 'allows the user to add a link post' do 
 			visit '/posts'
-			click_link "New DontGeddit Link"
+			click_link "Link DontGeddit"
 			fill_in "Title", with: "Here's a link I don't get"
 			fill_in "Url", with: "http://www.reddit.com"
 			click_button "Create DontGeddit"
-			click_link "Here's a link I don't get"
-			expect
 		end
 	end
 
