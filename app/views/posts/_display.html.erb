@@ -7,7 +7,8 @@
 		<%else%>
 			<h3><%=post.title%></h3>
 		<%end%>
-		<p><%= link_to 'Comments', post_path(post) %>
+		<p><%= link_to 'Comments', post_path(post) %> 
+		Created by <%=user.post_id.email%>
 		</p>
 		</article>
 		<aside class="voting-info">

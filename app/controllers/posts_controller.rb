@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	def index
 		@posts = Post.all
+		redirect_to '/posts/hot'
 	end
 
 	def new

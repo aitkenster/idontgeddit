@@ -16,7 +16,7 @@ describe 'posts' do
 				@nicola = create(:user)
 				login_as @nicola
 		end
-		
+
 		it 'shows one post when there is only one present' do 
 			visit '/posts'
 			click_link "Text DontGeddit"
@@ -24,6 +24,7 @@ describe 'posts' do
 			fill_in "Text", with: "This is what I don't get"
 			click_button "Create DontGeddit"
 			expect(page).to have_content "I just don't geddit"
+			expect(page).to have_content "Clueless"
 		end
 	end
 
